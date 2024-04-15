@@ -1,0 +1,24 @@
+<%- include("partials/header") -%>
+
+<h1>Welcome to Journally</h1>
+
+<p><%= homeStartingContent %></p>
+
+<div class="button">
+    <a href="/compose" class="btn entry">New Entry</a>
+</div>
+
+<% posts.forEach(function(post){ %>
+    <div style="box-shadow: 10px 5px 5px grey;" class="row entries">
+        <div class="col-12 entries">
+            <h1><%= post.title %></h1>
+                <p>
+                    <%= post.content.substring(0,100) + " ..." %> 
+                    <a href="/posts/<%= post.title %>" style="color : whitesmoke; font-size: 15px;">Read More</a>
+                </p>
+        </div>
+    </div>
+<% }) %>
+
+<%- include("partials/footer") -%>
+
